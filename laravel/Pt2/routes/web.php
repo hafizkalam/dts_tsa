@@ -1,11 +1,11 @@
 <?php
 
-// use App\Http\Controllers\home3Controller;
-// use App\Http\Controllers\ProductController;
-// use App\Http\Controllers\NewsController;
-// use App\Http\Controllers\ProgramController;
-// use App\Http\Controllers\AboutUsController;
-// use App\Http\Controllers\ContactController;
+use App\Http\Controllers\home3Controller;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
