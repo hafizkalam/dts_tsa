@@ -6,22 +6,33 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\Mahasiswa as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model; //Model Eloquent
+use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model //Definisi Model
+class Mahasiswa extends Model
 {
-    protected $table = 'mahasiswa'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswa
-    protected $primaryKey = 'id_mahasiswa'; // Memanggil isi DB Dengan primarykey
+    // use HasFactory;
+    protected $table="mahasiswa"; 
+    public $timestamps= false;
+    protected $primaryKey = 'nim'; // Memanggil isi DB Dengan primarykey
     /**
      * The attributes that are mass assignable.
-     **
-@var array
+     *
+     * @var array
      */
     protected $fillable = [
-        'Nim',
-        'Nama',
-        'Kelas',
-        'Jurusan',
-        'Handphone',
+        'nim',
+        'nama',
+        'kelas',
+        'jurusan',
+        'no_hp'
     ];
-};
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class);
+    }
+    
+    public function matakuliah()
+    {
+        return $this->belongsToMany(MataKuliah::class, 'mahasiswa_matakuliah', 'mahasiswa_id', 'matakuliah_id')->withPivot('nilai');
+    }
+}

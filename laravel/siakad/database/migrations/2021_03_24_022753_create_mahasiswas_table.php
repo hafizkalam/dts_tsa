@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMahasiswaTable extends Migration
+class CreateMahasiswasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateMahasiswaTable extends Migration
     public function up()
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->id('id_mahasiswa');
-            $table->string('nim', 10)->index();
-            $table->string('nama', 25)->index();
-            $table->string('kelas', 5);
-            $table->string('jurusan', 35);
-            $table->string('handphone', 14);
+            $table->String('nim', 15)->primary();
+            $table->String('nama', 50)->nullable();
+            $table->String('foto',255)->nullable();
+            $table->String('kelas', 10)->nullable();
+            $table->String('jurusan', 50)->nullable();
+            $table->String('no_hp', 15)->nullable();
             $table->timestamps();
         });
     }
