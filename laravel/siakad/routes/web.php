@@ -15,11 +15,11 @@ use App\Http\Controllers\MahasiswaController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('articles/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
+Route::get('articles/cetak_pdf', [ArticleController::class, 'cetak_pdf'])->name('cetak_pdf');
 
 Route::resource('articles', ArticleController::class);
 

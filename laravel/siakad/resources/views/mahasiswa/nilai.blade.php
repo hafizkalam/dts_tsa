@@ -9,6 +9,9 @@
         <div class="col-12 text-center">
             <h3><strong>KARTU HASIL STUDI (KHS)</strong></h3>
         </div>
+        <div class="col-12 float-right my-4">
+            <a href="{{ route('mahasiswa.cetak_nilai',$mahasiswa->nim) }}" class="btn btn-success">Cetak Ke pdf</a>
+        </div>
         <div class="col-12 my-4">
             <p class="m-0"><strong>Nama:</strong> {{ $mahasiswa->nama }}</p>
             <p class="m-0"><strong>NIM:</strong> {{ $mahasiswa->nim }}</p>
@@ -33,11 +36,6 @@
             </table>
             <div class="col">
                 <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
-                {{-- <a href="{{ route('mahasiswa.catak_pdf') }}" class="btn btn-danger">Cetak Ke pdf</a> --}}
-            </div>
-            <div class="col">
-                {{-- {{-- <a href="{{ /route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>  --}}
-                <a href="{{ route('mahasiswa.cetak_nilai',$mahasiswa->nim) }}" class="btn btn-danger">Cetak Ke pdf</a>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $article=Article::all();
+        $article = Article::all();
         return view('articles.index', compact('article'));
     }
 
@@ -38,7 +38,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->file('image')) {
+        if ($request->file('image')) {
             $image_name = $request->file('image')->store('images', 'public');
         }
 
@@ -47,7 +47,7 @@ class ArticleController extends Controller
             'content' => $request->content,
             'feature_image' => $image_name,
         ]);
-        
+
         // return redirect()->route('articles.index')->with('success', 'Data article saved successfully');
         return 'Article Berhasil Disimpan';
     }
@@ -90,8 +90,8 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->content = $request->content;
 
-        if($article->feature_image && file_exists(storage_path('app/public/' .$article->feature_image))){
-            Storage::delete('public/' .$article->feature_image);
+        if ($article->feature_image && file_exists(storage_path('app/public/' . $article->feature_image))) {
+            Storage::delete('public/' . $article->feature_image);
         }
         $image_name = $request->file('image')->store('images', 'public');
         $article->feature_image = $image_name;
@@ -111,7 +111,8 @@ class ArticleController extends Controller
         //
     }
 
-    public function cetak_pdf(){
+    public function cetak_pdf()
+    {
         $article = Article::All();
         $pdf = PDF::loadview('articles.articles_pdf', ['articles' => $article]);
         return $pdf->stream();

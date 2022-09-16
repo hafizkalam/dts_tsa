@@ -47,7 +47,15 @@
                         <label for="No_Handphone">No_Handphone</label>
                         <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone" value="{{ $Mahasiswa->no_hp }}" aria-describedby="No_Handphone" >
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="image">Feature Image</label>
+                        <input type="file" class="form-control" required="required" name="image" value="{{$Mahasiswa->foto}}"></br>
+                        <img width="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}">
+                    </div>
+                    <div class="col my-4">
+                        <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
+                        <button type="submit" class="btn btn-success float-right">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>

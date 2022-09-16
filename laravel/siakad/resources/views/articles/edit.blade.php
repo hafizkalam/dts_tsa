@@ -14,10 +14,13 @@
         </div>
         <div class="form-group">
             <label for="image">Feature Image</label>
-            <input type="file" class="form-control" required="required" name="image" value="{{$article->featured_image}}"></br>
-            <img width="150px" src="{{asset('storage/'.$article->featured_image)}}">
+            <input type="file" class="form-control" required="required" name="image" value="{{$article->feature_image}}"></br>
+            <img width="150px" src="{{asset('storage/'.$article->feature_image)}}">
         </div>
-        <button type="submit" class="btn btn-primary float-right">UbahData</button>
+        <div class="col">
+            <a href="{{ route('articles.index') }}" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+        </div>
         </form>
     </div>
 @endsection

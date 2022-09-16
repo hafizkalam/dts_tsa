@@ -20,7 +20,7 @@
             <!-- End Form Search -->
 
             <div class="float-right my-2">
-            <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+                <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
             </div>
         </div>
     </div>
@@ -38,6 +38,7 @@
             <th>Kelas</th>
             <th>Jurusan</th>
             <th>No_HP</th>
+            <th>Foto</th>
             <th width="280px">Action</th>
             </tr>
             @foreach ($mahasiswas as $Mahasiswa)
@@ -47,6 +48,7 @@
                     <td>{{ $Mahasiswa->kelas->nama_kelas}}</td>
                     <td>{{ $Mahasiswa->jurusan }}</td>
                     <td>{{ $Mahasiswa->no_hp }}</td>
+                    <td><img width="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}"></td>
                     <td>
                         <form action="{{ route('mahasiswa.destroy',$Mahasiswa->nim) }}" method="POST">
 

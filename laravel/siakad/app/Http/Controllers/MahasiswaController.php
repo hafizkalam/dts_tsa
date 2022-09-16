@@ -55,9 +55,13 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->file('image')) {
+            $image_name = $request->file('image')->store('images', 'public');
+        }
         $request->validate([
             'Nim' => 'required',
             'Nama' => 'required',
+            'image' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
             'No_Handphone' => 'required',
@@ -70,6 +74,7 @@ class MahasiswaController extends Controller
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
         $mahasiswa->nama = $request->get('Nama');
+        $mahasiswa->foto = $image_name;
         $mahasiswa->jurusan = $request->get('Jurusan');
         $mahasiswa->no_hp = $request->get('No_Handphone');
 
@@ -116,6 +121,7 @@ class MahasiswaController extends Controller
         $request->validate([
             'Nim' => 'required',
             'Nama' => 'required',
+            'image' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
             'No_Handphone' => 'required',
@@ -126,6 +132,11 @@ class MahasiswaController extends Controller
 
         $mahasiswa->nim = $request->get('Nim');
         $mahasiswa->nama = $request->get('Nama');
+        if ($mahasiswa->foto && file_exists(storage_path('app/public/' . $mahasiswa->foto))) {
+            Storage::delete('public/' . $mahasiswa->foto);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $mahasiswa->foto = $image_name;
         $mahasiswa->jurusan = $request->get('Jurusan');
         $mahasiswa->no_hp = $request->get('No_Handphone');
 

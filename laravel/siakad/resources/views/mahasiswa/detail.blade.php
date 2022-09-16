@@ -14,9 +14,11 @@
                     <li class="list-group-item"><b>Kelas: </b>{{$Mahasiswa->kelas->nama_kelas}}</li>
                     <li class="list-group-item"><b>Jurusan: </b>{{$Mahasiswa->jurusan}}</li>
                     <li class="list-group-item"><b>No_Handphone: </b>{{$Mahasiswa->no_hp}}</li>
+                    <li class="list-group-item"><b>Foto: </br><img width="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}"></li>
                 </ul>
             </div>
-            <a class="btn btn-success mt3" href="{{ route('mahasiswa.index') }}">Kembali</a>
+            <div>
+                <a class="float-right btn btn-secondary my-4 " href="{{ route('mahasiswa.index') }}">Kembali</a>
             </div>
         </div>
     </div>

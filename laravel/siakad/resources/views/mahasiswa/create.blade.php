@@ -47,7 +47,14 @@
 
                             <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone" aria-describedby="No_Handphone" >
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="image">Foto: </label>
+                            <input type="file" class="form-control" required="required" name="image"></br>
+                        </div>
+                        <div class="col">
+                            <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-primary float-right">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
